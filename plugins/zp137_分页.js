@@ -52,7 +52,7 @@ function changeSize(ref, x, e) {
 function search(ref, x, O) {
     ref.exc(`$${x.model}.search(x.path, Q, O, x.cache)`, { x, Q: JSON.parse(x.query), O }, () => {
         ref.exc("render()")
-        if (ref.props.onPageChanged) ref.exc(ref.props.onPageChanged, ref.ctx, () => ref.exc("render()"))
+        if (ref.props.onPageChanged) ref.exc(ref.props.onPageChanged, Object.assign({}, ref.ctx, O), () => ref.exc("render()"))
     })
 }
 
