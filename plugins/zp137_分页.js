@@ -7,7 +7,7 @@ let icon = {}
 function render(ref) {
     const p = ref.props
     if (!p.path || typeof p.path !== "string") return <div>请配置路径</div>
-    const x = ref.exc("$c.x." + p.path)
+    const x = ref.excA("$c.x." + p.path)
     if (!x || !x.arr) return <div/>
     const cur = x.skip / x.limit
     const max = Math.ceil(x.count / x.limit)
