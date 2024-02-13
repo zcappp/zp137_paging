@@ -1,5 +1,5 @@
 import React from "react"
-import css from "../css/zp137_分页.css"
+import css from "./zp137_分页.css"
 
 const pageOption = [10, 20, 50, 100]
 let icon = {}
