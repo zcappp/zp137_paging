@@ -6,8 +6,8 @@ let icon = {}
 
 function render(ref) {
     const p = ref.props
-    if (!p.path || typeof p.path !== "string") return <div>请配置路径</div>
-    const x = ref.excA("$c.x." + p.path)
+    if (!p.path || typeof p.path !== "string") return <div>请配置数据路径</div>
+    const x = ref.excA(p.path.startsWith("$c.x") ? p.path : "$c.x." + p.path)
     if (!x || !x.arr) return <div/>
     const cur = x.skip / x.limit
     const max = Math.ceil(x.count / x.limit)
@@ -62,7 +62,7 @@ $plugin({
     props: [{
         prop: "path",
         type: "text",
-        label: "路径",
+        label: "数据路径",
         ph: "search()的第一个参赛"
     }, {
         prop: "pageSize",
